@@ -43,6 +43,14 @@ export const handleJump = (delta: number, speedScale: number): void => {
   currentFrameTime += delta * speedScale;
 };
 
+export const getDinoRect = (): DOMRect => {
+  return dinoElem.getBoundingClientRect();
+};
+
+export const setDinoLose = (): void => {
+  dinoElem.src = `src/assets/dino-lose.png`;
+};
+
 export const handleRun = (delta: number): void => {
   if (!isJumping) return;
 

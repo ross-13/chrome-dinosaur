@@ -29,6 +29,12 @@ export const setupCactus = (): void => {
   });
 };
 
+export const getCactusRects = () => {
+  return [...document.querySelectorAll("[data-cactus]")].map((cactus) => {
+    return cactus.getBoundingClientRect();
+  });
+};
+
 export const updateCactus = (delta: number, speedScale: number): void => {
   document.querySelectorAll("[data-cactus").forEach((cactus) => {
     incrementCustomProperty(

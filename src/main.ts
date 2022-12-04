@@ -1,7 +1,8 @@
 import "./style.css";
 import { updateGround, setupGround } from "./ground";
-import { updateDino, setupDino } from "./dino";
-import { updateCactus, setupCactus } from "./cactus";
+import { updateDino, setupDino, getDinoRect, setDinoLose } from "./dino";
+import { updateCactus, setupCactus, getCactusRects } from "./cactus";
+import { isCollision } from "./utils/collision";
 
 const WORLD_WIDTH = 100;
 const WORLD_HEIGHT = 30;
@@ -53,8 +54,14 @@ const update = (time: number): void => {
   updateSpeedScale(delta);
   updateScore(delta);
 
+  if (checkLose()) return handleLose();
   lastTime = time;
   window.requestAnimationFrame(update);
+};
+
+const checkLose = (): boolean => {
+  const dinoRect = getDinoRect();
+  return getCactusRects().some((rect) => isCollision(rect, dinoRect));
 };
 
 const start = () => {
@@ -66,6 +73,14 @@ const start = () => {
   setupCactus();
   startScreenElem.classList.add("hide");
   window.requestAnimationFrame(update);
+};
+
+const handleLose = () => {
+  setDinoLose();
+  setTimeout(() => {
+    document.addEventListener("keydown", start, { once: true });
+    startScreenElem.classList.remove("hide");
+  });
 };
 
 setPixelToWorldScale();
