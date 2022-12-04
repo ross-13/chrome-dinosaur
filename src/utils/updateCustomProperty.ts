@@ -5,15 +5,15 @@ export const getCustomPropery = (elem: HTMLElement, prop: string): number => {
 export const setCustomeProperty = (
   elem: HTMLElement,
   prop: string,
-  value: string
+  value: number
 ): void => {
-  elem.style.setProperty(prop, value);
+  elem?.style.setProperty(prop, value as unknown as string);
 };
 
 export const incrementCustomProperty = (
   elem: HTMLElement,
   prop: string,
-  inc: string
+  inc: number
 ): void => {
   setCustomeProperty(elem, prop, getCustomPropery(elem, prop) + inc);
 };
