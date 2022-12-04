@@ -9,7 +9,7 @@ const WORLD_HEIGHT = 30;
 const SPEED_SCALE_INCREASE = 0.0001; // TODO: Now it doesn't work
 
 let lastTime: null | number;
-let speedScale: number;
+let speedScale: any;
 let score: number;
 
 const worldElem = document.querySelector("[data-world") as HTMLElement;
