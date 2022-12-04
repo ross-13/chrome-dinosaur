@@ -1,6 +1,7 @@
 import "./style.css";
 import { updateGround, setupGround } from "./ground";
 import { updateDino, setupDino } from "./dino";
+import { updateCactus, setupCactus } from "./cactus";
 
 const WORLD_WIDTH = 100;
 const WORLD_HEIGHT = 30;
@@ -48,6 +49,7 @@ const update = (time: number): void => {
 
   updateGround(delta, 1);
   updateDino(delta, 1);
+  updateCactus(delta, 1);
   updateSpeedScale(delta);
   updateScore(delta);
 
@@ -61,6 +63,7 @@ const start = () => {
   score = 0;
   setupGround();
   setupDino();
+  setupCactus();
   startScreenElem.classList.add("hide");
   window.requestAnimationFrame(update);
 };
