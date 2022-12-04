@@ -15,7 +15,7 @@ let dinoFrame: number;
 let currentFrameTime: number;
 let yVelocity: number;
 
-export const setupDino = () => {
+export const setupDino = (): void => {
   isJumping = false;
   dinoFrame = 0;
   currentFrameTime = 0;
