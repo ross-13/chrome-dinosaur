@@ -31,12 +31,12 @@ export const updateDino = (delta: number, speedScale: number): void => {
 
 export const handleJump = (delta: number, speedScale: number): void => {
   if (isJumping) {
-    dinoElem.src = `src/assets/dino-stationary.png`;
+    dinoElem.src = `/images/dino-stationary.png`;
     return;
   }
   if (currentFrameTime >= FRAME_TIME) {
     dinoFrame = (dinoFrame + 1) % DINO_FRAME_COUNT;
-    dinoElem.src = `src/assets/dino-run-${dinoFrame}.png`;
+    dinoElem.src = `/images/dino-run-${dinoFrame}.png`;
     currentFrameTime -= FRAME_TIME;
   }
 
@@ -48,7 +48,7 @@ export const getDinoRect = (): DOMRect => {
 };
 
 export const setDinoLose = (): void => {
-  dinoElem.src = `src/assets/dino-lose.png`;
+  dinoElem.src = `/images/dino-lose.png`;
 };
 
 export const handleRun = (delta: number): void => {

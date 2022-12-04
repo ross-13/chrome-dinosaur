@@ -16,7 +16,7 @@ export const createCactus = (): void => {
   const cactus = document.createElement("img") as any;
   cactus.dataset.cactus = true;
 
-  cactus.src = `src/assets/cactus.png`;
+  cactus.src = `/images/cactus.png`;
   cactus.classList.add("cactus");
   setCustomeProperty(cactus, "--left", 100);
   worldElem.append(cactus);
