@@ -1,5 +1,6 @@
 import "./style.css";
 import { updateGround, setupGround } from "./ground";
+import { updateDino, setupDino } from "./dino";
 
 const WORLD_WIDTH = 100;
 const WORLD_HEIGHT = 30;
@@ -46,6 +47,7 @@ const update = (time: number): void => {
   const delta = time - lastTime;
 
   updateGround(delta, 1);
+  updateDino(delta, 1);
   updateSpeedScale(delta);
   updateScore(delta);
 
@@ -58,6 +60,7 @@ const start = () => {
   speedScale = 1;
   score = 0;
   setupGround();
+  setupDino();
   startScreenElem.classList.add("hide");
   window.requestAnimationFrame(update);
 };
